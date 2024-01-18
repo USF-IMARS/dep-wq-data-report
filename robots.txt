@@ -1,1 +1,1 @@
-Sitemap: https://USF-IMARS.github.io/imars-jupyterhub/sitemap.xml
+Sitemap: https://USF-IMARS.github.io/dep-wq-data-report/sitemap.xml
