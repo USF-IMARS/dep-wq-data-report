@@ -1,1 +1,9 @@
+# quarto stuff
 /.quarto/
+/_site/
+
+# R stuff
+.Rproj.user
+
+# ubuntu backups
+*~
