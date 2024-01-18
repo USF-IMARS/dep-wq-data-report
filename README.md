@@ -1,4 +1,3 @@
 ```bash
 quarto preview .
-
 ```
