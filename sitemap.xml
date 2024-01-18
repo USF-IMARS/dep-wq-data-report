@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://USF-IMARS.github.io/imars-jupyterhub/index.html</loc>
-    <lastmod>2024-01-18T19:26:26.156Z</lastmod>
+    <loc>https://USF-IMARS.github.io/imars-jupyterhub/parameters_report.html</loc>
+    <lastmod>2024-01-18T19:57:07.360Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/imars-jupyterhub/sites_report.html</loc>
+    <lastmod>2024-01-18T19:55:51.918Z</lastmod>
   </url>
   <url>
     <loc>https://USF-IMARS.github.io/imars-jupyterhub/about.html</loc>
-    <lastmod>2024-01-18T19:25:19.334Z</lastmod>
+    <lastmod>2024-01-18T19:55:49.265Z</lastmod>
   </url>
   <url>
-    <loc>https://USF-IMARS.github.io/imars-jupyterhub/parameter_analysis.html</loc>
-    <lastmod>2024-01-18T19:25:22.857Z</lastmod>
+    <loc>https://USF-IMARS.github.io/imars-jupyterhub/index.html</loc>
+    <lastmod>2024-01-18T19:56:02.037Z</lastmod>
   </url>
 </urlset>

@@ -57,24 +57,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="_parameter_analysis_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_parameter_analysis_files/libs/quarto-html/quarto.js"></script>
-<script src="_parameter_analysis_files/libs/quarto-html/popper.min.js"></script>
-<script src="_parameter_analysis_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="_parameter_analysis_files/libs/quarto-html/anchor.min.js"></script>
-<link href="_parameter_analysis_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_parameter_analysis_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="_parameter_analysis_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="_parameter_analysis_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="_parameter_analysis_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="fullcontent">
+<body class="nav-fixed">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Dep-wq-data-report</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#report" id="toc-report" class="nav-link active" data-scroll-target="#report">Report</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -120,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(parameter_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Orthophosphate (P)"</code></pre>
+<pre><code>[1] "Turbidity"</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -131,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>── Data Summary ────────────────────────
                            Values     
 Name                       subset_data
-Number of rows             41666      
+Number of rows             69615      
 Number of columns          17         
 _______________________               
 Column type frequency:                
@@ -142,34 +211,34 @@ Group variables            None
 
 ── Variable type: character ────────────────────────────────────────────────────
    skim_variable  n_missing complete_rate min max empty n_unique whitespace
- 1 Source                 0         1       3   7     0        6          0
- 2 Site                   0         1       1  16     0      702          0
- 3 Latitude             644         0.985   8   8     0     4139          0
- 4 Longitude            644         0.985   9   9     0     4903          0
- 5 Parameter              0         1      18  18     0        1          0
- 6 Units                 18         1.00    4   6     0        3          0
- 7 Trend Analysis         0         1       2   3     0        2          0
- 8 Continuous             0         1       2   3     0        2          0
- 9 End Date               0         1       4   7     0       14          0
-10 Value_orig           701         0.983   1  12     0     1756          0
+ 1 Source                 0         1       3  11     0        6          0
+ 2 Site                   0         1       1  28     0      853          0
+ 3 Latitude            2113         0.970   8   8     0      729          0
+ 4 Longitude           2117         0.970   9   9     0      699          0
+ 5 Parameter              0         1       9   9     0        1          0
+ 6 Units                887         0.987   3   4     0        2          0
+ 7 Trend Analysis        60         0.999   2   3     0        2          0
+ 8 Continuous            60         0.999   2   3     0        2          0
+ 9 End Date              60         0.999   4   7     0        8          0
+10 Value_orig           261         0.996   1  11     0     3845          0
 
 ── Variable type: numeric ──────────────────────────────────────────────────────
-  skim_variable n_missing complete_rate        mean           sd        p0
-1 ...1                  0        1        373134.       27269.    3.51e+ 5
-2 Month                 0        1             6.63         3.45  1   e+ 0
-3 Year                  0        1          2015.           6.42  2.00e+ 3
-4 Value               869        0.979  -2750747.   174024939.   -1.11e+10
-5 Total Depth       40978        0.0165        9.10         9.04  9   e- 1
-6 Sample Depth      16403        0.606         2.40         6.21  0       
-7 Start Date            0        1          2007.           7.01  2.00e+ 3
-         p25        p50        p75     p100 hist 
-1 361074.    371490.    381907.    717536   ▇▁▁▁▁
-2      4          7         10         12   ▇▅▅▅▇
-3   2011       2018       2020       2022   ▁▂▂▃▇
-4      0.002      0.004      0.005      2.3 ▁▁▁▁▇
-5      4.9        6.4        8.27      52.7 ▇▁▁▁▁
-6      0          0.5        0.5       54.5 ▇▁▁▁▁
-7   2001       2005       2016       2022   ▆▇▁▇▁</code></pre>
+  skim_variable n_missing complete_rate      mean       sd     p0       p25
+1 ...1                  0         1     674278.   21875.   638287 655690.  
+2 Month                23         1.00       6.50     3.41      1      4   
+3 Year                 23         1.00    2012.       7.60   1995   2006   
+4 Value               262         0.996      1.69     8.62      0      0.35
+5 Total Depth       41901         0.398     10.2     10.2       0      3.62
+6 Sample Depth      24409         0.649      4.30     8.21      0      0.5 
+7 Start Date           60         0.999   2001.      11.3    1988   1988   
+        p50       p75    p100 hist 
+1 673094    690898.   716036  ▇▇▇▇▅
+2      7         9        12  ▇▆▆▅▇
+3   2013      2019      2022  ▂▂▅▃▇
+4      0.7       1.4    1626  ▇▁▁▁▁
+5      7.30     12.1     121. ▇▁▁▁▁
+6      0.5       4.89    121. ▇▁▁▁▁
+7   2005      2008      2022  ▇▁▆▁▅</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -186,13 +255,14 @@ Group variables            None
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="_parameter_analysis_files/figure-html/create%20a%20histogram%20for%20the%20param-1.png" class="img-fluid" width="672"></p>
+<p><img src="parameter_analysis_files/figure-html/create a histogram for the param-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

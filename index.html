@@ -123,6 +123,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./parameters_report.html" rel="" target="">
+ <span class="menu-text">WQ Params</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sites_report.html" rel="" target="">
+ <span class="menu-text">Collection Sites</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -141,7 +149,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#data-files-overview" id="toc-data-files-overview" class="nav-link active" data-scroll-target="#data-files-overview">Data files overview:</a></li>
   <li><a href="#exploratory-analyses" id="toc-exploratory-analyses" class="nav-link" data-scroll-target="#exploratory-analyses">Exploratory analyses</a></li>
-  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
   </ul>
 </nav>
     </div>
@@ -673,78 +680,6 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 [5] "*Not Reported" "ND"           </code></pre>
 </div>
 </div>
-</section>
-<section id="parameters" class="level1">
-<h1>Parameters</h1>
-<p>Available parameters:</p>
-<div class="cell">
-<details>
-<summary>(code) view unique parameters</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 612830 Columns: 16
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(10): Source, Site, Latitude, Longitude, Parameter, Value, Units, Trend ... dbl
-(6): ...1, Month, Year, Total Depth, Sample Depth, Start Date
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in getData(): NAs introduced by coercion</code></pre>
-</div>
-<details>
-<summary>(code) view unique parameters</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print unique values in `Parameter` column</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>unique_parameters <span class="ot">&lt;-</span> <span class="fu">unique</span>(data<span class="sc">$</span>Parameter)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(unique_parameters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "Chlorophyll a"            "Ammonium (N)"            
- [3] "Nitrate-Nitrite (N)"      "Nitrite (N)"             
- [5] "Nitrate (N)"              "Orthophosphate (P)"      
- [7] "Silica"                   "Nitrogen- Total"         
- [9] "Nitrogen- Total Kjeldahl" "Phosphorus- Total"       
-[11] "Turbidity"               </code></pre>
-</div>
-<details>
-<summary>(code) view unique parameters</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: this ran for 20min and never finished</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # create a violin plot of `Value` grouped by each `Parameter`</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot2::ggplot(df, aes(x=Parameter, y=Value)) +</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     geom_violin(trim=FALSE) +</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     labs(title="Violin Plot of Values by Parameter",</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co">#          x="Parameter",</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co">#          y="Value")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>Render a report for each parameter:</p>
-<details>
-<summary>(code) view wq report links</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (wq_param <span class="cf">in</span> unique_parameters) {</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># </span><span class="al">NOTE</span><span class="co">: this line is copied from last loop</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  filepath <span class="ot">=</span> <span class="fu">paste</span>(<span class="st">"parameter_report_"</span>, wq_param, <span class="st">".html"</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"* [{filepath}](./{filepath}) </span><span class="sc">\n</span><span class="st">"</span>))</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<ul>
-<li><a href="./parameter_report_Chlorophyll a.html">parameter_report_Chlorophyll a.html</a></li>
-<li><a href="./parameter_report_Ammonium (N).html">parameter_report_Ammonium (N).html</a></li>
-<li><a href="./parameter_report_Nitrate-Nitrite (N).html">parameter_report_Nitrate-Nitrite (N).html</a></li>
-<li><a href="./parameter_report_Nitrite (N).html">parameter_report_Nitrite (N).html</a></li>
-<li><a href="./parameter_report_Nitrate (N).html">parameter_report_Nitrate (N).html</a></li>
-<li><a href="./parameter_report_Orthophosphate (P).html">parameter_report_Orthophosphate (P).html</a></li>
-<li><a href="./parameter_report_Silica.html">parameter_report_Silica.html</a></li>
-<li><a href="./parameter_report_Nitrogen- Total.html">parameter_report_Nitrogen- Total.html</a></li>
-<li><a href="./parameter_report_Nitrogen- Total Kjeldahl.html">parameter_report_Nitrogen- Total Kjeldahl.html</a></li>
-<li><a href="./parameter_report_Phosphorus- Total.html">parameter_report_Phosphorus- Total.html</a></li>
-<li><a href="./parameter_report_Turbidity.html">parameter_report_Turbidity.html</a></li>
-</ul>
 
 
 </section>
