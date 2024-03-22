@@ -1,0 +1,63 @@
+---
+title: "Sites Report"
+code-fold: true
+
+---
+
+```{R} 
+#| label: import libraries & functions
+#| code-summary: (code) import libraries & functions
+#| message: false
+#| warning: false
+
+if (!requireNamespace("librarian", quietly = TRUE)) {
+  # If not installed, install the package
+  install.packages("librarian")
+}
+
+# librarian::shelf(
+#   
+# )
+source("R/getData.R")
+```
+
+# Sites
+A summary of which sites meet quality assessment checks to be included in the final map.
+```{R}
+data <- getData()
+
+unique_sources <- unique(data$Source)
+print(unique_sources)
+```
+
+Render a report for each data provider:
+```{R}
+#| label: render wq param reports
+#| code-summary: (code) render wq param reports
+#| include: false  # supress quarto messages
+for (provider in unique_sources) {
+  params = list(
+    provider_name = provider
+  )
+
+  filepath = paste("provider_report_", params$provider_name, ".html", sep = "")
+  
+  quarto::quarto_render(input = "_provider_analysis.qmd", 
+                 output_format = "html", 
+                 execute_params = params,
+                 output_file = filepath,
+  )
+}
+```
+
+```{R}
+#| label: print wq report links
+#| code-summary: (code) view wq report links
+#| results: asis  # passthrough html+markdown
+
+for (wq_param in unique_parameters) {
+  # NOTE: this line is copied from last loop
+  filepath = paste("parameter_report_", wq_param, ".html", sep = "")
+
+  print(glue::glue("* [{filepath}](./{filepath}) \n"))
+}
