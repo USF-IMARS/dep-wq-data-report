@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameters_report.html</loc>
-    <lastmod>2024-01-18T20:05:05.162Z</lastmod>
-  </url>
-  <url>
-    <loc>https://USF-IMARS.github.io/dep-wq-data-report/sites_report.html</loc>
-    <lastmod>2024-01-18T20:04:13.333Z</lastmod>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_report_template.html</loc>
+    <lastmod>2024-03-22T20:41:50.970Z</lastmod>
   </url>
   <url>
     <loc>https://USF-IMARS.github.io/dep-wq-data-report/about.html</loc>
-    <lastmod>2024-01-18T20:04:11.138Z</lastmod>
+    <lastmod>2024-03-22T20:40:29.092Z</lastmod>
   </url>
   <url>
     <loc>https://USF-IMARS.github.io/dep-wq-data-report/index.html</loc>
-    <lastmod>2024-01-18T20:04:20.443Z</lastmod>
+    <lastmod>2024-03-22T20:40:25.082Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/provider_sites_report.html</loc>
+    <lastmod>2024-03-22T20:40:13.089Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/provider_report_template.html</loc>
+    <lastmod>2024-03-22T20:40:28.690Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameters_report.html</loc>
+    <lastmod>2024-03-22T20:41:45.619Z</lastmod>
   </url>
 </urlset>
