@@ -42,7 +42,7 @@ for (provider in unique_sources) {
 
   filepath = paste("provider_report_", params$provider_name, ".html", sep = "")
   
-  quarto::quarto_render(input = "_provider_analysis.qmd", 
+  quarto::quarto_render(input = "provider_report_template.qmd", 
                  output_format = "html", 
                  execute_params = params,
                  output_file = filepath,

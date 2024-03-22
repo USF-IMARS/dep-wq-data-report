@@ -48,46 +48,22 @@ Render a report for each parameter:
 #| label: render wq param reports
 #| code-summary: (code) render wq param reports
 #| include: false  # supress quarto messages
-library(purrr)
-library(here)
+for (wq_param in unique_parameters) {
+  print(paste("rendering for ", wq_param))
+  params = list(
+    parameter_name = wq_param
+  )
 
-# Assuming `unique_parameters` is a vector, convert it to a dataframe
-params_df <- tibble::tibble(parameter_name = unique_parameters)
+  filepath = paste("parameter_report_", params$parameter_name, ".html", sep = "")
 
-# Define the wrapper function for quarto_render
-render_quarto <- function(parameter_name) {
-  message(paste("Rendering for", parameter_name)) # Printing message
-  filepath <- paste0("parameter_report_", parameter_name, ".html")
-  
-  quarto::quarto_render(
-    input = here::here("parameter_report_template.qmd"), 
-    output_format = "html",
-    execute_params = list(parameter_name = parameter_name),
-    output_file = filepath
-    # You might adjust execute_dir if needed, based on your project structure
+  # NOTE: this is
+  quarto::quarto_render(input = "parameter_report_template.qmd",
+                 output_format = "html",
+                 execute_params = params,
+                 output_file = filepath,
+                 # execute_dir = "./"
   )
 }
-
-# Use pwalk to apply the function across each row of the dataframe
-pwalk(list(params_df), render_quarto, .progress = interactive())
-
-# === alternative: ==========================================
-# for (wq_param in unique_parameters) {
-#   print(paste("rendering for ", wq_param))
-#   params = list(
-#     parameter_name = wq_param
-#   )
-# 
-#   filepath = paste("parameter_report_", params$parameter_name, ".html", sep = "")
-#   
-#   # NOTE: this is 
-#   quarto::quarto_render(input = "_parameter_analysis.qmd", 
-#                  output_format = "html", 
-#                  execute_params = params,
-#                  output_file = filepath,
-#                  # execute_dir = "./"
-#   )
-# }
 ```
 
 ```{R}
