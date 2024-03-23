@@ -54,15 +54,32 @@ for (wq_param in unique_parameters) {
     parameter_name = wq_param
   )
 
-  filepath = paste("parameter_report_", params$parameter_name, ".html", sep = "")
+  filename = paste0("parameter_report_", params$parameter_name)
+  filepath = paste0(filename, ".html")
 
   # NOTE: this is
-  quarto::quarto_render(input = "parameter_report_template.qmd",
+  templateName <- "parameter_report_template"
+  quarto::quarto_render(input = paste0(templateName, ".qmd"),
                  output_format = "html",
                  execute_params = params,
                  output_file = filepath,
                  # execute_dir = "./"
   )
+  
+  # TODO: need to move the files? [ref](https://jadeyryan.quarto.pub/rladies-dc-quarto-params/slides/#/limitations)
+  # Move reports to separate folder ==============================================
+  # output_dir <- filename
+  # 
+  # # List files that contain ".html".
+  # files <- fs::dir_ls(here::here(), regexp = ".html$")
+  # 
+  # # Create directory if needed
+  # fs::dir_create(output_dir)
+  # 
+  # # Move the files
+  # fs::file_move(files, output_dir)
+  # fs::file_move(paste0(templateName, "_files"), output_dir)
+  
 }
 ```
 

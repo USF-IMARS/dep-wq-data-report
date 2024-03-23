@@ -5,7 +5,7 @@ format: html
 code-fold: true
 warning: false
 params: 
-  parameter_name: "Chlorophyll a"
+  parameter_name: "Silica"
 ---
 
 # `r params$name` Report
@@ -41,7 +41,7 @@ print(skimr::skim(subset_data))
 p <- ggplot2::ggplot(subset_data, aes(x=Value)) +
     geom_histogram(bins=30, fill="blue", color="black") +
     scale_y_log10() +  # Transform the y-axis to a logarithmic scale
-    labs(title=paste("Histogram of Values for", parameter_name),
+    labs(title=paste("Histogram of Values for", params$parameter_name),
          x="Value",
          y="Log Frequency") +
     theme_minimal()
