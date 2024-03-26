@@ -48,24 +48,25 @@ Render a report for each parameter:
 #| label: render wq param reports
 #| code-summary: (code) render wq param reports
 #| include: false  # supress quarto messages
+
+
 for (wq_param in unique_parameters) {
   print(paste("rendering for ", wq_param))
   params = list(
     parameter_name = wq_param
   )
 
-  filename = paste0("parameter_report_", params$parameter_name)
-  filepath = paste0(filename, ".html")
-
-  # NOTE: this is
-  templateName <- "parameter_report_template"
-  quarto::quarto_render(input = paste0(templateName, ".qmd"),
-                 output_format = "html",
-                 execute_params = params,
-                 output_file = filepath,
-                 # execute_dir = "./"
-  )
-  
+  # filename = paste0("parameter_report_", params$parameter_name)
+  # filepath = paste0(filename, ".html")
+  # 
+  # # templateName <- "parameter_report_template"
+  # quarto::quarto_render(input = paste0(templateName, ".qmd"),
+  #                output_format = "html",
+  #                execute_params = params,
+  #                output_file = filepath,
+  #                # execute_dir = "./"
+  # )
+  # 
   # TODO: need to move the files? [ref](https://jadeyryan.quarto.pub/rladies-dc-quarto-params/slides/#/limitations)
   # Move reports to separate folder ==============================================
   # output_dir <- filename

@@ -1,0 +1,46 @@
+---
+title: "Dep-wq-data-report"
+format: html
+#echo: false
+code-fold: true
+warning: false
+params: 
+  parameter_name: {{parameter_name}}
+---
+
+# `r params$name` Report
+
+```{R}
+#| label: setup
+
+if (!requireNamespace("librarian", quietly = TRUE)) {
+  # If not installed, install the package
+  install.packages("librarian")
+}
+
+librarian::shelf(
+  skimr,
+  ggplot2
+)
+
+source("R/getData.R")
+```
+
+```{R}
+data <- getData()
+parameter_name <- params$parameter_name
+print(parameter_name)
+subset_data <- subset(data, Parameter == parameter_name)
+print(skimr::skim(subset_data))
+
+```
+```{R}
+#| label: create {{parameter_name}} histogram
+ggplot2::ggplot(subset_data, aes(x=Value)) +
+    geom_histogram(bins=30, fill="blue", color="black") +
+    scale_y_log10() +  # Transform the y-axis to a logarithmic scale
+    labs(title=paste("Histogram of Values for", params$parameter_name),
+         x="Value",
+         y="Log Frequency") +
+    theme_minimal()
+```

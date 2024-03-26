@@ -1,6 +1,6 @@
 project:
   type: website
-
+  pre-render: R/generate_param_reports.R
 website:
   title: "Dep-wq-data-report"
   navbar:
@@ -8,6 +8,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - href: parameters.qmd
+        text: parameters
       - href: parameters_report.qmd
         text: WQ Params
       - href: sites_report.qmd

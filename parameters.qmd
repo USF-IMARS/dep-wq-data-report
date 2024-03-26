@@ -1,0 +1,7 @@
+---
+title: "Parameter Reports"
+description: "This is a parameter listing"
+listing:
+  contents: parameter_reports
+  type: grid
+---
