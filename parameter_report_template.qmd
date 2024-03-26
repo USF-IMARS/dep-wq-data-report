@@ -35,17 +35,12 @@ print(skimr::skim(subset_data))
 
 ```
 ```{R}
-#| label: create a histogram for the param
-
-
-p <- ggplot2::ggplot(subset_data, aes(x=Value)) +
+#| label: create `params$parameter_name` histogram
+ggplot2::ggplot(subset_data, aes(x=Value)) +
     geom_histogram(bins=30, fill="blue", color="black") +
     scale_y_log10() +  # Transform the y-axis to a logarithmic scale
     labs(title=paste("Histogram of Values for", params$parameter_name),
          x="Value",
          y="Log Frequency") +
     theme_minimal()
-
-print(p)
-
 ```

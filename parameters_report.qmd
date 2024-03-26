@@ -88,8 +88,12 @@ for (wq_param in unique_parameters) {
 #| code-summary: (code) view wq report links
 #| results: asis  # passthrough html+markdown
 for (wq_param in unique_parameters) {
-  # NOTE: this line is copied from last loop
-  filepath = paste("parameter_report_", wq_param, ".html", sep = "")
+  # NOTE: these lines copied from last loop
+  params = list(
+    parameter_name = wq_param
+  )
+  filename = paste0("parameter_report_", params$parameter_name)
+  filepath = paste0(filename, ".html")
 
   print(glue::glue("* [{filepath}](./{filepath}) \n"))
 }
