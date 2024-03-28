@@ -1,6 +1,7 @@
 # quarto stuff
 /.quarto/
 /_site/
+*_cache/
 
 # R stuff
 .Rproj.user

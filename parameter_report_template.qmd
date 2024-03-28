@@ -6,6 +6,8 @@ code-fold: true
 warning: false
 params: 
   parameter_name: "Silica"
+execute: 
+  cache: true
 ---
 
 # `r params$parameter_name` Report

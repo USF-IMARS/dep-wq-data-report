@@ -1,17 +1,22 @@
 project:
   type: website
   pre-render: R/generate_param_reports.R
+
 website:
   title: "Dep-wq-data-report"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+        
       - href: parameters.qmd
         text: WQ Parameter Reports
+        
       - href: provider_sites_report.qmd
         text: Data Provider Reports
+        
+      - href: data_details.qmd
+        text: Data Details
 
 format:
   html:
@@ -19,5 +24,6 @@ format:
     css: styles.css
     toc: true
 
-
+execute:
+  cache: true
 

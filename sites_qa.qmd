@@ -1,0 +1,22 @@
+---
+title: "Sites QA"
+description: "Quality assurance steps taken to filter out low-quality sites"
+code-fold: true
+---
+
+Coming soon
+
+```{R}
+#| code-summary: remove sites with < 3 years 
+# TODO
+```
+
+```{R}
+#| code-summary: remove sites with < 10 data points
+# TODO
+```
+
+```{R}
+#| code-summary: remove sites with no data since 2020
+# TODO
+```
