@@ -177,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell">
+<div class="cell" data-hash="data_details_cache/html/import libraries &amp; functions_0822cdd12860469704f0b6aab559b5f5">
 <details>
 <summary>(code) import libraries &amp; functions</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>There are three relevant types of data file provided:</p>
-<div class="cell">
+<div class="cell" data-hash="data_details_cache/html/preview the raw data_d9d2f099fb136c711096733f2ffbaf50">
 <details>
 <summary>(code) preview the raw data</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>inspectData <span class="ot">&lt;-</span> <span class="cf">function</span>(fpath){</span>
@@ -335,7 +335,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <section id="exploratory-analyses" class="level1">
 <h1>Exploratory analyses</h1>
 <p>A skim view of the data as it loads in:</p>
-<div class="cell">
+<div class="cell" data-hash="data_details_cache/html/skim data_84989481816d545965a8a5c507b72a4f">
 <details>
 <summary>(code) skim the data</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/Unified_WQ_Database_1995-2022.csv"</span>)</span>
@@ -625,7 +625,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <p>The <code>Value</code> is reading in as “Character” when it should be “Numeric”. We can convert it and view the rows that are being lost because they read as non-numeric:</p>
-<div class="cell">
+<div class="cell" data-hash="data_details_cache/html/view bad rows_7efb8e6314935338eda00925f88bc033">
 <details>
 <summary>(code) view bad rows</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()  <span class="co"># the getData in getData.R reads and converts the Value col </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -665,7 +665,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 </div>
 <p>The unique problem values in the “Values” column:</p>
-<div class="cell">
+<div class="cell" data-hash="data_details_cache/html/view bad `Value` values_e737c451559bb739bb5a73ae6e150edd">
 <details>
 <summary>(code) view bad <code>Value</code> values</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unique</span>(na_introduced_rows<span class="sc">$</span>Value_orig))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
