@@ -1,5 +1,5 @@
 ---
-title: "Dep-wq-data-report"
+title: "Silica"
 format: html
 #echo: false
 code-fold: true
@@ -8,7 +8,7 @@ params:
   parameter_name: "Silica"
 ---
 
-# `r params$name` Report
+# `r params$parameter_name` Report
 
 ```{R}
 #| label: setup
@@ -19,23 +19,24 @@ if (!requireNamespace("librarian", quietly = TRUE)) {
 }
 
 librarian::shelf(
+  here,
   skimr,
   ggplot2
 )
 
-source("R/getData.R")
+source(here("R/getData.R"))
+data <- getData()
 ```
 
 ```{R}
-data <- getData()
+#| code-summary: load data & skim
 parameter_name <- params$parameter_name
-print(parameter_name)
 subset_data <- subset(data, Parameter == parameter_name)
 print(skimr::skim(subset_data))
 
 ```
 ```{R}
-#| label: create `params$parameter_name` histogram
+#| code-summary: create `params$parameter_name` histogram
 ggplot2::ggplot(subset_data, aes(x=Value)) +
     geom_histogram(bins=30, fill="blue", color="black") +
     scale_y_log10() +  # Transform the y-axis to a logarithmic scale

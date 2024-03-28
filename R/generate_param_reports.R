@@ -5,7 +5,12 @@ if (!nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))) {
   quit()
 }
 
-templ <- readLines("parameter_report_template.whisker")
+# create the template
+templ <- gsub(
+  "\"Silica\"", "{{parameter_name}}", 
+  readLines("parameter_report_template.qmd"))
+
+
 dir.create("parameter_reports", showWarnings=FALSE)
 
 source("R/getData.R")
@@ -18,7 +23,7 @@ for (wq_param in unique_parameters) {
     parameter_name = wq_param
   )
   print(glue::glue("=== creating template for '{wq_param}' ==="))
-
+  
   writeLines(
     whisker::whisker.render(templ, params),
     file.path("parameter_reports", paste0(wq_param, ".qmd"))

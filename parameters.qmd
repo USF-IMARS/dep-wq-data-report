@@ -1,6 +1,6 @@
 ---
 title: "Parameter Reports"
-description: "This is a parameter listing"
+description: "Reports for each reported water quality parameter."
 code-fold: true
 listing:
   contents: parameter_reports
@@ -24,6 +24,7 @@ librarian::shelf(
   quarto
 )
 source("R/getData.R")
+data <- getData()
 ```
 
 # Parameters
@@ -33,13 +34,13 @@ Available parameters:
 ```{R}
 #| label: view unique paramters
 #| code-summary: (code) view unique parameters
-data <- getData()
+
 # print unique values in `Parameter` column
 unique_parameters <- unique(data$Parameter)
 print(unique_parameters)
 
-# NOTE: this ran for 20min and never finished
 # # create a violin plot of `Value` grouped by each `Parameter`
+# NOTE: this ran for 20min and never finished
 # ggplot2::ggplot(df, aes(x=Parameter, y=Value)) +
 #     geom_violin(trim=FALSE) +
 #     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
