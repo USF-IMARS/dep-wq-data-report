@@ -15,7 +15,7 @@ website:
       - href: provider_sites_report.qmd
         text: Data Provider Reports
         
-      - href: sites_qa.qmd
+      - href: sites_qc.qmd
         
       - href: data_details.qmd
         text: Data Details
