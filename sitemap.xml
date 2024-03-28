@@ -2,26 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_report_template.html</loc>
-    <lastmod>2024-03-22T20:41:50.970Z</lastmod>
+    <lastmod>2024-03-28T13:36:44.012Z</lastmod>
   </url>
   <url>
-    <loc>https://USF-IMARS.github.io/dep-wq-data-report/about.html</loc>
-    <lastmod>2024-03-22T20:40:29.092Z</lastmod>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameters.html</loc>
+    <lastmod>2024-03-28T13:36:39.462Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/data_details.html</loc>
+    <lastmod>2024-03-28T13:36:36.543Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Turbidity.html</loc>
+    <lastmod>2024-03-28T13:36:25.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Ammonium (N).html</loc>
+    <lastmod>2024-03-28T13:36:18.596Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Silica.html</loc>
+    <lastmod>2024-03-28T13:36:12.092Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Nitrogen- Total.html</loc>
+    <lastmod>2024-03-28T13:36:06.061Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Nitrite (N).html</loc>
+    <lastmod>2024-03-28T13:36:00.055Z</lastmod>
   </url>
   <url>
     <loc>https://USF-IMARS.github.io/dep-wq-data-report/index.html</loc>
-    <lastmod>2024-03-22T20:40:25.082Z</lastmod>
+    <lastmod>2024-03-28T13:35:54.111Z</lastmod>
   </url>
   <url>
     <loc>https://USF-IMARS.github.io/dep-wq-data-report/provider_sites_report.html</loc>
-    <lastmod>2024-03-22T20:40:13.089Z</lastmod>
+    <lastmod>2024-03-28T13:35:53.914Z</lastmod>
   </url>
   <url>
-    <loc>https://USF-IMARS.github.io/dep-wq-data-report/provider_report_template.html</loc>
-    <lastmod>2024-03-22T20:40:28.690Z</lastmod>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Nitrate (N).html</loc>
+    <lastmod>2024-03-28T13:35:57.048Z</lastmod>
   </url>
   <url>
-    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameters_report.html</loc>
-    <lastmod>2024-03-22T20:41:45.619Z</lastmod>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Nitrogen- Total Kjeldahl.html</loc>
+    <lastmod>2024-03-28T13:36:03.147Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Orthophosphate (P).html</loc>
+    <lastmod>2024-03-28T13:36:09.020Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Phosphorus- Total.html</loc>
+    <lastmod>2024-03-28T13:36:15.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Nitrate-Nitrite (N).html</loc>
+    <lastmod>2024-03-28T13:36:21.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/parameter_reports/Chlorophyll a.html</loc>
+    <lastmod>2024-03-28T13:36:28.869Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/about.html</loc>
+    <lastmod>2024-03-28T13:36:36.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://USF-IMARS.github.io/dep-wq-data-report/sites_qa.html</loc>
+    <lastmod>2024-03-28T13:36:40.430Z</lastmod>
   </url>
 </urlset>

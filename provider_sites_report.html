@@ -120,16 +120,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./parameters.html" rel="" target="">
+ <span class="menu-text">WQ Parameter Reports</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./parameters_report.html" rel="" target="">
- <span class="menu-text">WQ Params</span></a>
+    <a class="nav-link active" href="./provider_sites_report.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Data Provider Reports</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sites_report.qmd" rel="" target="">
- <span class="menu-text">Collection Sites</span></a>
+    <a class="nav-link" href="./data_details.html" rel="" target="">
+ <span class="menu-text">Data Details</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
@@ -143,13 +143,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#sites" id="toc-sites" class="nav-link active" data-scroll-target="#sites">Sites</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -171,9 +165,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p>A summary of which sites meet quality assessment checks to be included in the final map.</p>
 <div class="cell">
 <details>
-<summary>(code) import libraries &amp; functions</summary>
+<summary>(code) import libraries, functions, &amp; data</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If not installed, install the package</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"librarian"</span>)</span>
@@ -182,48 +177,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># librarian::shelf(</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   </span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/getData.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/getData.R"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="sites" class="level1">
-<h1>Sites</h1>
-<p>A summary of which sites meet quality assessment checks to be included in the final map.</p>
 <div class="cell">
 <details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 612830 Columns: 16
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(10): Source, Site, Latitude, Longitude, Parameter, Value, Units, Trend ... dbl
-(6): ...1, Month, Year, Total Depth, Sample Depth, Start Date
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...1`</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in getData(): NAs introduced by coercion</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>unique_sources <span class="ot">&lt;-</span> <span class="fu">unique</span>(data<span class="sc">$</span>Source)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(unique_sources)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<summary>show unique providers</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>unique_sources <span class="ot">&lt;-</span> <span class="fu">unique</span>(data<span class="sc">$</span>Source)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(unique_sources)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "AOML"        "DERM"        "BROWARD"     "DEP"         "FIU"        
 [6] "21FLWQA"     "BBAP"        "Miami Beach" "BBWW"       </code></pre>
 </div>
 </div>
-<p>Render a report for each data provider:</p>
-<p>#| label: print wq report links #| code-summary: (code) view wq report links #| results: asis # passthrough html+markdown</p>
-<p>for (wq_param in unique_parameters) { # NOTE: this line is copied from last loop filepath = paste(“parameter_report_”, wq_param, “.html”, sep = ““)</p>
-<p>print(glue::glue(“* <a href="./{filepath}">{filepath}</a> ”)) }</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,0 +1,18 @@
+[
+  {
+    "listing": "/parameters.html",
+    "items": [
+      "/parameter_reports/Ammonium (N).html",
+      "/parameter_reports/Chlorophyll a.html",
+      "/parameter_reports/Nitrate (N).html",
+      "/parameter_reports/Nitrate-Nitrite (N).html",
+      "/parameter_reports/Nitrite (N).html",
+      "/parameter_reports/Nitrogen- Total.html",
+      "/parameter_reports/Nitrogen- Total Kjeldahl.html",
+      "/parameter_reports/Orthophosphate (P).html",
+      "/parameter_reports/Phosphorus- Total.html",
+      "/parameter_reports/Silica.html",
+      "/parameter_reports/Turbidity.html"
+    ]
+  }
+]
