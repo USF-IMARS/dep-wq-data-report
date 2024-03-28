@@ -1,7 +1,49 @@
 ---
 title: "Parameter Reports"
 description: "This is a parameter listing"
+code-fold: true
 listing:
   contents: parameter_reports
   type: grid
 ---
+
+
+```{R} 
+#| label: import libraries & functions
+#| code-summary: (code) import libraries & functions
+#| message: false
+#| warning: false
+
+if (!requireNamespace("librarian", quietly = TRUE)) {
+  # If not installed, install the package
+  install.packages("librarian")
+}
+
+librarian::shelf(
+  glue,
+  quarto
+)
+source("R/getData.R")
+```
+
+# Parameters
+
+Available parameters:
+
+```{R}
+#| label: view unique paramters
+#| code-summary: (code) view unique parameters
+data <- getData()
+# print unique values in `Parameter` column
+unique_parameters <- unique(data$Parameter)
+print(unique_parameters)
+
+# NOTE: this ran for 20min and never finished
+# # create a violin plot of `Value` grouped by each `Parameter`
+# ggplot2::ggplot(df, aes(x=Parameter, y=Value)) +
+#     geom_violin(trim=FALSE) +
+#     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+#     labs(title="Violin Plot of Values by Parameter",
+#          x="Parameter",
+#          y="Value")
+```

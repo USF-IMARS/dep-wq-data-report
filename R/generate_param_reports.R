@@ -1,7 +1,10 @@
+# creates a report template .qmd for each parameter in the dataset
+
 # Proceed if rendering the whole project, exit otherwise
 if (!nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))) {
   quit()
 }
+
 templ <- readLines("parameter_report_template.whisker")
 dir.create("parameter_reports", showWarnings=FALSE)
 
@@ -14,6 +17,7 @@ for (wq_param in unique_parameters) {
   params = list(
     parameter_name = wq_param
   )
+  print(glue::glue("=== creating template for '{wq_param}' ==="))
 
   writeLines(
     whisker::whisker.render(templ, params),
