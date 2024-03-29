@@ -1,0 +1,17 @@
+---
+title: "Sites QC"
+description: "Quality control steps taken to filter out low-quality sites."
+code-fold: true
+---
+
+Coming soon
+
+```{R}
+#| code-summary: remove sites with < 20 data points
+# TODO
+```
+
+```{R}
+#| code-summary: remove sites with no data since last two years (2022)
+# TODO: should calculate "last two years" from latest date in the data
+```
