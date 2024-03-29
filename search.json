@@ -60,7 +60,7 @@
     "href": "index.html",
     "title": "Dep-wq-data-report",
     "section": "",
-    "text": "This collection of reports summarizes data provided by the Florida Department of Environmental Protection.\nThe recommended quality control cleaning steps are applied and explained.\nReports are generated\n\nfor each Water Quality (WQ) parameter\n(coming soon) for each data provider\n(coming soon) a QA filtering across all sites\ndetails on the data files provided\n\nThe cleaned version of this data is fed into the FL DEP WQ Dashboard for site-by-site exploratoration."
+    "text": "This collection of reports summarizes data provided by the Florida Department of Environmental Protection.\nThe recommended quality control cleaning steps are applied and explained.\nReports are generated\n\nfor each Water Quality (WQ) parameter\n(coming soon) for each data provider\n(coming soon) recommended quality control filtering across all sites\ndetails on the data files provided\n\nThe cleaned version of this data is fed into the FL DEP WQ Dashboard for site-by-site exploration."
   },
   {
     "objectID": "provider_sites_report.html",
@@ -119,9 +119,9 @@
     "text": "About this site"
   },
   {
-    "objectID": "sites_qa.html",
-    "href": "sites_qa.html",
-    "title": "Sites QA",
+    "objectID": "sites_qc.html",
+    "href": "sites_qc.html",
+    "title": "Sites QC",
     "section": "",
     "text": "Coming soon\n\n\nremove sites with &lt; 3 years\n# TODO\n\n\n\n\nremove sites with &lt; 10 data points\n# TODO\n\n\n\n\nremove sites with no data since 2020\n# TODO"
   }
