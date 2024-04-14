@@ -4,14 +4,99 @@ description: "Quality control steps taken to filter out low-quality sites."
 code-fold: true
 ---
 
-Coming soon
+```{R}
+#| label: setup
+#| message: false
+#| warning: false
+
+if (!requireNamespace("librarian", quietly = TRUE)) {
+  # If not installed, install the package
+  install.packages("librarian")
+}
+
+librarian::shelf(
+  dplyr,
+  glue,
+  ggplot2,
+  here,
+  skimr,
+)
+
+source(here("R/getData.R"))
+```
+
+
+
+```{R}
+#| code-summary: load data & skim
+df <- getData()
+print(skimr::skim(df))
+```
+
+```{R}
+#| code-summary: function for plotting sites histogram
+site_histogram <- function(df){
+  number_of_unique_sites <- df %>% summarise(unique_sites = dplyr::n_distinct(Site))
+
+  site_counts <- df %>%
+    group_by(Site) %>%
+    summarise(Count = n())
+  
+  ggplot(site_counts, aes(x = Count)) +
+    geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+    labs(title = glue("Histogram of Rows Per Site (total sites: {number_of_unique_sites})"),
+         x = "Number of Rows",
+         y = "Number of Sites") +
+    theme_minimal()
+}
+```
+
+```{R}
+#| code-summary: show initial sites setup
+site_histogram(df)
+```
+
+```{R}
+#| code-summary: drop rows without Year or Value
+df <- df %>%
+  filter(!is.na(Year) & !is.na(Value))
+
+site_histogram(df)
+```
 
 ```{R}
 #| code-summary: remove sites with < 20 data points
-# TODO
+df <- df %>%
+  group_by(Site) %>%
+  filter(n() >= 20) %>%
+  ungroup()  # It's a good practice to ungroup data after operations like this
+
+site_histogram(df)
 ```
 
 ```{R}
 #| code-summary: remove sites with no data since last two years (2022)
 # TODO: should calculate "last two years" from latest date in the data
+latest_year <- max(df$Year)
+
+ggplot(df, aes(x = Year)) +
+  geom_histogram(binwidth = 1, fill = "blue", color = "black") +
+  labs(title = "Histogram of Years",
+       x = "Year",
+       y = "Frequency") +
+  theme_minimal()
+
+sites_with_recent_data <- df %>%
+  filter(Year > latest_year-2) %>%  # Filter for rows with Year greater than 2022
+  distinct(Site)           # Get unique sites that meet the criteria
+
+df <- df %>%
+  semi_join(sites_with_recent_data, by = "Site")  # Keep rows where 'Site' matches those in the recent data list
+
+site_histogram(df)
+```
+
+```{R}
+#| code-summary: write cleaned DataFrame to a file
+write.csv(df, "data/df_cleaned.csv", row.names = FALSE)
 ```
