@@ -17,11 +17,11 @@ if (!requireNamespace("librarian", quietly = TRUE)) {
   install.packages("librarian")
 }
 
-# librarian::shelf(
-#   
-# )
+librarian::shelf(
+  ggplot2,
+  dplyr
+)
 source("R/getData.R")
-data <- getData()
 ```
 
 ```{R}
@@ -30,3 +30,29 @@ unique_sources <- unique(data$Source)
 print(unique_sources)
 ```
 
+```{R}
+#| code-summary: show % of clean data per site
+# Count for raw dataframe
+raw_counts <- getRawData() %>%
+  group_by(Source) %>%
+  summarise(Count = n(), .groups = 'drop') %>%
+  mutate(Condition = "Before Cleaning")
+
+# Count for cleaned dataframe
+cleaned_counts <- getData() %>%
+  group_by(Source) %>%
+  summarise(Count = n(), .groups = 'drop') %>%
+  mutate(Condition = "After Cleaning")
+
+combined_counts <- bind_rows(raw_counts, cleaned_counts)
+
+ggplot(combined_counts, aes(x = Source, y = Count, fill = Condition)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Number of Rows Per Source Before and After Cleaning",
+       x = "Source",
+       y = "Number of Rows",
+       fill = "Condition") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Rotate x-axis labels for better readability
+
+```
