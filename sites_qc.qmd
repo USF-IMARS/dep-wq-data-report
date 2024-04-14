@@ -29,7 +29,7 @@ source(here("R/getData.R"))
 
 ```{R}
 #| code-summary: load data & skim
-df <- getData()
+df <- getRawData()
 print(skimr::skim(df))
 ```
 
