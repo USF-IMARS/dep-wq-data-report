@@ -9,16 +9,19 @@ website:
       - href: index.qmd
         text: Home
         
-      - href: parameters.qmd
-        text: WQ Parameter Reports
+      - href: sites_qc.qmd
         
       - href: provider_sites_report.qmd
         text: Data Provider Reports
         
-      - href: sites_qc.qmd
+      - href: parameters.qmd
+        text: WQ Parameter Reports
         
       - href: data_details.qmd
         text: Data Details
+        
+      - href: https://github.com/USF-IMARS/dep-wq-data-report
+        text: Source Code on GitHub
 
 format:
   html:

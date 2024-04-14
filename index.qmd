@@ -11,8 +11,8 @@ The recommended quality control cleaning steps are applied and explained.
 Reports are generated
 
 * for each Water Quality (WQ) parameter
-* (coming soon) for each data provider
-* (coming soon) recommended quality control filtering across all sites
+* showing rows provided by each data provider
+* recommended quality control filtering across all sites
 * details on the data files provided
 
 The cleaned version of this data is fed into the [FL DEP WQ Dashboard](https://github.com/USF-IMARS/fl-coral-reef-fcr-water-quality-dashboard) for site-by-site exploration.
