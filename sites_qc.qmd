@@ -81,9 +81,9 @@ latest_year <- max(df$Year)
 
 ggplot(df, aes(x = Year)) +
   geom_histogram(binwidth = 1, fill = "blue", color = "black") +
-  labs(title = "Histogram of Years",
+  labs(title = "N Rows per year",
        x = "Year",
-       y = "Frequency") +
+       y = "N Rows") +
   theme_minimal()
 
 sites_with_recent_data <- df %>%
