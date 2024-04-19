@@ -37,12 +37,11 @@ inspectData <- function(fpath){
   print(head(df))
 }
 
-inspectData("data/Merged_chla.csv")
 inspectData("data/station_sampling_periods_for_all_programs.csv")
 inspectData("data/Unified_WQ_Database_1995-2022.csv")
 ```
 
-Here is a summarizing table of what I see in each:
+Here is a summarizing table of what I see in each file we were provided:
 
 filename                                        | geospatial info     | dt info  | 
 ------------------------------------------------|---------------------|----------|---
