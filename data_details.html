@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p>There are three relevant types of data file provided:</p>
-<div class="cell" data-hash="data_details_cache/html/preview the raw data_d9d2f099fb136c711096733f2ffbaf50">
+<div class="cell" data-hash="data_details_cache/html/preview the raw data_26f12271c396f11b9535c9083c011706">
 <details>
 <summary>(code) preview the raw data</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>inspectData <span class="ot">&lt;-</span> <span class="cf">function</span>(fpath){</span>
@@ -213,36 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">head</span>(df))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">inspectData</span>(<span class="st">"data/Merged_chla.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "data/Merged_chla.csv"</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 60719 Columns: 9
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (4): Source, Site, Parameter, Units
-dbl (3): Month, Year, Value
-lgl (2): Total Depth, Sample Depth
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 9
-  Source Site  Month  Year Parameter Value Units `Total Depth` `Sample Depth`
-  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;         &lt;lgl&gt;         
-1 AOML   1         1  1998 chla      1.00  ug/L  NA            NA            
-2 AOML   2         1  1998 chla      0.556 ug/L  NA            NA            
-3 AOML   3         1  1998 chla      0.695 ug/L  NA            NA            
-4 AOML   4         1  1998 chla      0.427 ug/L  NA            NA            
-5 AOML   5         1  1998 chla      0.665 ug/L  NA            NA            
-6 AOML   6         1  1998 chla      0.267 ug/L  NA            NA            </code></pre>
-</div>
-<details>
-<summary>(code) preview the raw data</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspectData</span>(<span class="st">"data/station_sampling_periods_for_all_programs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">inspectData</span>(<span class="st">"data/station_sampling_periods_for_all_programs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data/station_sampling_periods_for_all_programs.csv"</code></pre>
@@ -271,7 +242,7 @@ dbl (4): Lat, Long, Sample Start Year, Sample End Year
 </div>
 <details>
 <summary>(code) preview the raw data</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspectData</span>(<span class="st">"data/Unified_WQ_Database_1995-2022.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inspectData</span>(<span class="st">"data/Unified_WQ_Database_1995-2022.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data/Unified_WQ_Database_1995-2022.csv"</code></pre>
@@ -302,7 +273,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 #   `End Date` &lt;chr&gt;</code></pre>
 </div>
 </div>
-<p>Here is a summarizing table of what I see in each:</p>
+<p>Here is a summarizing table of what I see in each file we were provided:</p>
 <table class="table">
 <colgroup>
 <col style="width: 58%">
@@ -346,9 +317,9 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <div class="cell" data-hash="data_details_cache/html/skim data_84989481816d545965a8a5c507b72a4f">
 <details>
 <summary>(code) skim the data</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/Unified_WQ_Database_1995-2022.csv"</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/Unified_WQ_Database_1995-2022.csv"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
@@ -636,7 +607,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <div class="cell" data-hash="data_details_cache/html/view bad rows_7efb8e6314935338eda00925f88bc033">
 <details>
 <summary>(code) view bad rows</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()  <span class="co"># the getData in getData.R reads and converts the Value col </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()  <span class="co"># the getData in getData.R reads and converts the Value col </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>New names:
@@ -647,10 +618,10 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </div>
 <details>
 <summary>(code) view bad rows</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>na_rows <span class="ot">&lt;-</span> <span class="fu">is.na</span>(data<span class="sc">$</span>Value) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>Value_orig)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>na_introduced_rows <span class="ot">&lt;-</span> data[na_rows, ]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(na_introduced_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>na_rows <span class="ot">&lt;-</span> <span class="fu">is.na</span>(data<span class="sc">$</span>Value) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(data<span class="sc">$</span>Value_orig)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>na_introduced_rows <span class="ot">&lt;-</span> data[na_rows, ]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(na_introduced_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,989 × 17
@@ -676,7 +647,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <div class="cell" data-hash="data_details_cache/html/view bad `Value` values_e737c451559bb739bb5a73ae6e150edd">
 <details>
 <summary>(code) view bad <code>Value</code> values</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unique</span>(na_introduced_rows<span class="sc">$</span>Value_orig))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unique</span>(na_introduced_rows<span class="sc">$</span>Value_orig))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Spilled"       "TRUE"          "FALSE"         "*Non-detect"  
