@@ -3,10 +3,21 @@
 getRawData <- function(){
   data <- readr::read_csv(
     here::here("data/Unified_WQ_Database_1995-2022.csv"),
+    locale = readr::locale(encoding = "UTF-8"),
     show_col_types = FALSE) %>%
+  mutate(  # Remove anything that's not a digit, a dot or a minus sign
+    Value = gsub("[^0-9.-]", "", Value),  
+    Latitude = gsub("[^0-9.-]", "", Latitude),
+    Longitude = gsub("[^0-9.-]", "", Longitude)
+  ) %>%
   dplyr::mutate(
-    Value_orig = Value,
-    Value = as.numeric(Value)
+    # convert numeric 
+    verbatimValue = Value,
+    Value = as.numeric(Value),
+    VerbatimLatitude = Latitude,
+    Latitude = as.numeric(Latitude),
+    verbatimLongitude = Longitude,
+    Longitude = as.numeric(Longitude)
   )
   return(data)
 }

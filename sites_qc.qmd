@@ -57,9 +57,9 @@ site_histogram(df)
 ```
 
 ```{R}
-#| code-summary: drop rows without Year or Value
+#| code-summary: drop rows without Year, Value, Lat, or Lon
 df <- df %>%
-  filter(!is.na(Year) & !is.na(Value))
+  filter(!is.na(Year) & !is.na(Value) & !is.na(Latitude) & !is.na(Longitude))
 
 site_histogram(df)
 ```
