@@ -3,9 +3,11 @@
 getRawData <- function(){
   data <- readr::read_csv(
     here::here("data/Unified_WQ_Database_1995-2022.csv"),
-    show_col_types = FALSE)
-  data$Value_orig <- data$Value
-  data$Value <- as.numeric(data$Value)
+    show_col_types = FALSE) %>%
+  dplyr::mutate(
+    Value_orig = Value,
+    Value = as.numeric(Value)
+  )
   return(data)
 }
 
