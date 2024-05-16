@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="nitrite-n-report" class="level1">
 <h1>Nitrite (N) Report</h1>
-<div class="cell" data-hash="Nitrite--N-_cache/html/setup_7e6a5a3387a04151aca09e283ae05e2d">
+<div class="cell" data-hash="Nitrite--N-_cache/html/setup_190613eb6ea1023390bd9a6a55f1c6b7">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -190,13 +190,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>librarian<span class="sc">::</span><span class="fu">shelf</span>(</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  here,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  skimr,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  ggplot2</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"R/getData.R"</span>))</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  glue,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  here,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  skimr,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ggplot2</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"R/getData.R"</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-hash="Nitrite--N-_cache/html/unnamed-chunk-2_0ba9227e3cee5160dcc1da6862b895aa">
@@ -251,19 +252,45 @@ Group variables            None
 7   1988          1988          2015       2020    ▇▃▁▁▃</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="Nitrite--N-_cache/html/unnamed-chunk-3_a3f87c059c6e160f6561a22d6e39bb65">
+<div class="cell" data-hash="Nitrite--N-_cache/html/unnamed-chunk-3_21f9e5cb8e535ae65f96828925bc21af">
+<details>
+<summary>apply param bounds</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>min[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>max[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>3 rows dropped as &lt; 0 or &gt; 0.5</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="Nitrite--N-_cache/html/unnamed-chunk-4_e6787f663ccbead6e5ee229e15d07503">
+<details>
+<summary>write cleaned DataFrame to a file</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" data-hash="Nitrite--N-_cache/html/unnamed-chunk-5_33de0bf07e2f3aa2aa28a3fb234dae0a">
 <details>
 <summary>create <code>params$parameter_name</code> histogram</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Nitrite--N-_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="Nitrite--N-_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 

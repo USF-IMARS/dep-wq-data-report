@@ -271,72 +271,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="todo-filter-rows-with-param-values-too-high" class="level1">
 <h1>TODO: filter rows with param values too high</h1>
-<table class="table">
-<thead>
-<tr class="header">
-<th>param</th>
-<th>min</th>
-<th>max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ammonium</td>
-<td>0</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td>Nitrate</td>
-<td>0</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td>Chlorophylll</td>
-<td>0</td>
-<td>75</td>
-</tr>
-<tr class="even">
-<td>Nitrate-Nitrate</td>
-<td>0</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>Nitrite</td>
-<td>0</td>
-<td>0.5</td>
-</tr>
-<tr class="even">
-<td>Nitrogen Total</td>
-<td>0</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td>Nitrogen Total K.</td>
-<td>0</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Orthophosphate</td>
-<td>0</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td>Phosphorus total</td>
-<td>0</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Silica</td>
-<td>0</td>
-<td>20</td>
-</tr>
-<tr class="odd">
-<td>Turbidity</td>
-<td>0</td>
-<td>200</td>
-</tr>
-</tbody>
-</table>
+<div class="cell" data-hash="parameters_cache/html/unnamed-chunk-3_f82922f4d21246e3680043f0787d0c71">
+<details>
+<summary>print table of param bounds</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: each row should *exactly* match the unique_parameters above</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>csvPath <span class="ot">&lt;-</span> <span class="st">"parameter_bounds.csv"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the CSV data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(csvPath, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the data frame</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       param min   max
+1  Ammonium (N)                0   6.0
+2  Nitrate (N)                 0  10.0
+3  Chlorophyll a               0  75.0
+4  Nitrate-Nitrite (N)         0   8.0
+5  Nitrite (N)                 0   0.5
+6  Nitrogen- Total             0   6.0
+7  Nitrogen- Total Kjeldahl    0   5.0
+8  Orthophosphate (P)          0  10.0
+9  Phosphorus- Total           0   2.0
+10 Silica                      0  20.0
+11 Turbidity                   0 200.0</code></pre>
+</div>
+</div>
 
 
 
@@ -344,10 +305,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1713819415095" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1715887155659" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Ammonium (N).html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Ammonium--N-_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Ammonium--N-_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Ammonium (N)
@@ -364,10 +325,10 @@ Ammonium (N)
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1713819415092" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1715887155651" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Chlorophyll a.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Chlorophyll-a_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Chlorophyll-a_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Chlorophyll a
@@ -384,10 +345,10 @@ Chlorophyll a
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1713819415102" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1715887155670" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Nitrate (N).html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Nitrate--N-_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Nitrate--N-_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nitrate (N)
@@ -404,10 +365,10 @@ Nitrate (N)
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1713819415097" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1715887155663" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Nitrate-Nitrite (N).html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Nitrate-Nitrite--N-_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Nitrate-Nitrite--N-_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nitrate-Nitrite (N)
@@ -424,10 +385,10 @@ Nitrate-Nitrite (N)
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1713819415100" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1715887155666" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Nitrite (N).html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Nitrite--N-_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Nitrite--N-_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nitrite (N)
@@ -444,10 +405,10 @@ Nitrite (N)
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1713819415109" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="5" data-listing-file-modified-sort="1715887155683" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Nitrogen- Total.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Nitrogen--Total_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Nitrogen--Total_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nitrogen- Total
@@ -464,10 +425,10 @@ Nitrogen- Total
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1713819415112" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="6" data-listing-file-modified-sort="1715887155688" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Nitrogen- Total Kjeldahl.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Nitrogen--Total-Kjeldahl_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Nitrogen--Total-Kjeldahl_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Nitrogen- Total Kjeldahl
@@ -484,10 +445,10 @@ Nitrogen- Total Kjeldahl
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1713819415104" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="7" data-listing-file-modified-sort="1715887155675" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Orthophosphate (P).html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Orthophosphate--P-_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Orthophosphate--P-_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Orthophosphate (P)
@@ -504,10 +465,10 @@ Orthophosphate (P)
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1713819415115" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="8" data-listing-file-modified-sort="1715887155693" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Phosphorus- Total.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Phosphorus--Total_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Phosphorus--Total_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Phosphorus- Total
@@ -524,10 +485,10 @@ Phosphorus- Total
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1713819415107" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="9" data-listing-file-modified-sort="1715887155679" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Silica.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Silica_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Silica_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Silica
@@ -544,10 +505,10 @@ Silica
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1713819415117" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="10" data-listing-file-modified-sort="1715887155698" data-listing-reading-time-sort="1">
 <a href="./parameter_reports/Turbidity.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="parameter_reports/Turbidity_files/figure-html/unnamed-chunk-3-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="parameter_reports/Turbidity_files/figure-html/unnamed-chunk-5-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 Turbidity
