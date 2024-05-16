@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="chlorophyll-a-report" class="level1">
 <h1>Chlorophyll a Report</h1>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/setup_eae84eaef35b32e54b14c9a7b7cacf29">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/setup_5963d77914ca97a683d41a0339171794">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -197,86 +197,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"R/getData.R"</span>))</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-2_af1ac4484f70f2817abf8e7f992976a3">
-<details>
-<summary>load data &amp; skim</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>── Data Summary ────────────────────────
-                           Values     
-Name                       subset_data
-Number of rows             51196      
-Number of columns          17         
-_______________________               
-Column type frequency:                
-  character                10         
-  numeric                  7          
-________________________              
-Group variables            None       
-
-── Variable type: character ────────────────────────────────────────────────────
-   skim_variable  n_missing complete_rate min max empty n_unique whitespace
- 1 Source                 0         1       3   7     0        8          0
- 2 Site                   0         1       1  28     0     1178          0
- 3 Latitude             581         0.989   8   8     0     4575          0
- 4 Longitude            583         0.989   9   9     0     5335          0
- 5 Parameter              0         1      13  13     0        1          0
- 6 Units                 27         0.999   4   4     0        2          0
- 7 Trend Analysis         0         1       2   3     0        2          0
- 8 Continuous             0         1       2   3     0        2          0
- 9 End Date               0         1       4   7     0       15          0
-10 Value_orig           685         0.987   1  13     0    18971          0
-
-── Variable type: numeric ──────────────────────────────────────────────────────
-  skim_variable n_missing complete_rate     mean       sd       p0       p25
-1 ...1                  0         1     30493.   48063.      1     12801.   
-2 Month                 0         1         6.59     3.43    1         4    
-3 Year                  0         1      2012.       7.90 1995      2006    
-4 Value              1282         0.975     1.82     5.14   -0.048     0.286
-5 Total Depth       33794         0.340     9.05     9.25    0         3.05 
-6 Sample Depth       8402         0.836     1.01    16.8     0         0.1  
-7 Start Date            0         1      1999.       9.92 1988      1988    
-       p50      p75    p100 hist 
-1 25600.   38839.   717530  ▇▁▁▁▁
-2     7       10        12  ▇▅▅▅▇
-3  2013     2019      2022  ▂▃▅▅▇
-4     0.58     1.58    300  ▇▁▁▁▁
-5     6       11.4     121. ▇▁▁▁▁
-6     0.5      0.5    2494  ▇▁▁▁▁
-7  1998     2005      2021  ▇▇▅▁▃</code></pre>
-</div>
-</div>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-3_689cd181d2ffeefe10ef548a6c35b32c">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-2_a5e60162e96c9a9a4a999aeb44cd59c9">
 <details>
 <summary>apply param bounds</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>min[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>max[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>min[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>max[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>4 rows dropped as &lt; 0 or &gt; 75</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-4_cb7155fdf4259c0363232da1a9494349">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-3_094194f899c8a561b166c1b322efe0e7">
 <details>
 <summary>write cleaned DataFrame to a file</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-4_bc9af646993b502fa8153a75087ff195">
+<details>
+<summary>load data &amp; skim</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>── Data Summary ────────────────────────
+                           Values     
+Name                       subset_data
+Number of rows             36765      
+Number of columns          20         
+_______________________               
+Column type frequency:                
+  character                7          
+  numeric                  13         
+________________________              
+Group variables            None       
+
+── Variable type: character ────────────────────────────────────────────────────
+  skim_variable  n_missing complete_rate min max empty n_unique whitespace
+1 Source                 0             1   3   7     0        8          0
+2 Site                   0             1   1  28     0      456          0
+3 Parameter              0             1  13  13     0        1          0
+4 Units                  0             1   4   4     0        2          0
+5 Trend Analysis         0             1   2   3     0        2          0
+6 Continuous             0             1   2   3     0        2          0
+7 End Date               0             1   4   7     0        9          0
+
+── Variable type: numeric ──────────────────────────────────────────────────────
+   skim_variable     n_missing complete_rate     mean        sd     p0      p25
+ 1 ...1                      0         1     23172.   25831.       1   11288   
+ 2 Latitude                  0         1        25.5      0.708   24.4    24.8 
+ 3 Longitude                 0         1       -80.7      0.718  -83.5   -81.3 
+ 4 Month                     0         1         6.70     3.45     1       4   
+ 5 Year                      0         1      2013.       7.71  1995    2008   
+ 6 Value                     0         1         1.44     3.02     0       0.28
+ 7 Total Depth           25612         0.303     7.45     7.56     0       2.83
+ 8 Sample Depth           6468         0.824     1.18    19.9      0       0   
+ 9 Start Date                0         1      2001.      10.4   1988    1988   
+10 verbatimValue             0         1         1.44     3.02     0       0.28
+11 VerbatimLatitude          0         1        25.5      0.708   24.4    24.8 
+12 verbatimLongitude         0         1       -80.7      0.718  -83.5   -81.3 
+13 Value_orig                0         1         1.44     3.02     0       0.28
+        p50      p75     p100 hist 
+ 1 21955    31683    717453   ▇▁▁▁▁
+ 2    25.5     25.9      27.8 ▇▆▇▂▁
+ 3   -80.4    -80.1     -80.0 ▁▁▂▃▇
+ 4     7       10        12   ▇▅▅▅▇
+ 5  2016     2021      2022   ▂▂▃▃▇
+ 6     0.52     1.40     70.9 ▇▁▁▁▁
+ 7     5        9.61    121.  ▇▁▁▁▁
+ 8     0.5      0.5    2494   ▇▁▁▁▁
+ 9  1998     2006      2021   ▇▆▆▁▆
+10     0.52     1.40     70.9 ▇▁▁▁▁
+11    25.5     25.9      27.8 ▇▆▇▂▁
+12   -80.4    -80.1     -80.0 ▁▁▂▃▇
+13     0.52     1.40     70.9 ▇▁▁▁▁</code></pre>
+</div>
 </div>
 <div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-5_0696b3399a1b42cb8c5731012339dbbb">
 <details>

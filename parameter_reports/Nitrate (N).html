@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="nitrate-n-report" class="level1">
 <h1>Nitrate (N) Report</h1>
-<div class="cell" data-hash="Nitrate--N-_cache/html/setup_1d5d8c8e0d79f8b3f401da0c66569ca8">
+<div class="cell" data-hash="Nitrate--N-_cache/html/setup_4c2f99740f9f806e2794a48cc75922de">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -197,86 +197,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"R/getData.R"</span>))</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-2_7333bc39c0e1aa112bf5f398b55b56db">
-<details>
-<summary>load data &amp; skim</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>── Data Summary ────────────────────────
-                           Values     
-Name                       subset_data
-Number of rows             36204      
-Number of columns          17         
-_______________________               
-Column type frequency:                
-  character                10         
-  numeric                  7          
-________________________              
-Group variables            None       
-
-── Variable type: character ────────────────────────────────────────────────────
-   skim_variable  n_missing complete_rate min max empty n_unique whitespace
- 1 Source                 0         1       3   4     0        4          0
- 2 Site                   0         1       1  28     0      587          0
- 3 Latitude               0         1       8   8     0     3984          0
- 4 Longitude              4         1.00    9   9     0     4800          0
- 5 Parameter              0         1      11  11     0        1          0
- 6 Units                  0         1       4   6     0        2          0
- 7 Trend Analysis         0         1       2   3     0        2          0
- 8 Continuous             0         1       2   3     0        2          0
- 9 End Date               0         1       4   7     0       12          0
-10 Value_orig          5992         0.834   1  11     0     2916          0
-
-── Variable type: numeric ──────────────────────────────────────────────────────
-  skim_variable n_missing complete_rate        mean        sd       p0
-1 ...1                  0         1     325471.     32410.    303594  
-2 Month                 0         1          6.58       3.44       1  
-3 Year                  0         1       2009.         7.77    1995  
-4 Value              6521         0.820      0.0102     0.532    -80.5
-5 Total Depth       10765         0.703      9.97       9.86       0  
-6 Sample Depth        226         0.994      3.20       7.30       0  
-7 Start Date            0         1       1992.         6.03    1988  
-           p25          p50          p75     p100 hist 
-1 312645.      322286.      332618.      717534   ▇▁▁▁▁
-2      4            7           10           12   ▇▅▅▅▇
-3   2003         2009         2016         2022   ▆▇▇▅▇
-4      0.00058      0.00147      0.00342     23.2 ▁▁▁▇▁
-5      3.7          7           12          121.  ▇▁▁▁▁
-6      0            0.5          1.25       121.  ▇▁▁▁▁
-7   1988         1988         1998         2020   ▇▃▁▁▁</code></pre>
-</div>
-</div>
-<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-3_f6d08055a05c40808a3fcf1d79f0491b">
+<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-2_d76e90f8b793cc5c72c78abfd043baf4">
 <details>
 <summary>apply param bounds</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>min[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>max[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>lower_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>min[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>upper_bound <span class="ot">&lt;-</span> bounds<span class="sc">$</span>max[bounds<span class="sc">$</span>param <span class="sc">==</span> parameter_name]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>1 rows dropped as &lt; 0 or &gt; 10</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-4_e6139a10a82e74f8620099dc1bdb6195">
+<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-3_8f1480cf9e7c4c905f2c7cc1692cdc8a">
 <details>
 <summary>write cleaned DataFrame to a file</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+<div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-4_17c6b8a36f112091c2d5dc89008996fd">
+<details>
+<summary>load data &amp; skim</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>── Data Summary ────────────────────────
+                           Values     
+Name                       subset_data
+Number of rows             2074       
+Number of columns          20         
+_______________________               
+Column type frequency:                
+  character                7          
+  numeric                  13         
+________________________              
+Group variables            None       
+
+── Variable type: character ────────────────────────────────────────────────────
+  skim_variable  n_missing complete_rate min max empty n_unique whitespace
+1 Source                 0             1   3   4     0        4          0
+2 Site                   0             1   1  21     0      165          0
+3 Parameter              0             1  11  11     0        1          0
+4 Units                  0             1   4   6     0        2          0
+5 Trend Analysis         0             1   2   3     0        2          0
+6 Continuous             0             1   2   3     0        2          0
+7 End Date               0             1   4   7     0        4          0
+
+── Variable type: numeric ──────────────────────────────────────────────────────
+   skim_variable     n_missing complete_rate        mean        sd       p0
+ 1 ...1                      0         1     317876.     46702.    307064  
+ 2 Latitude                  0         1         25.8        0.866     24.4
+ 3 Longitude                 0         1        -81.0        0.877    -83.5
+ 4 Month                     0         1          7.26       3.40       1  
+ 5 Year                      0         1       2017.         3.61    2005  
+ 6 Value                     0         1          0.0181     0.165      0  
+ 7 Total Depth            1379         0.335      9.08       9.02       0.9
+ 8 Sample Depth             28         0.986      1.04       2.54       0  
+ 9 Start Date                0         1       2004.         8.59    1988  
+10 verbatimValue             0         1          0.0181     0.165      0  
+11 VerbatimLatitude          0         1         25.8        0.866     24.4
+12 verbatimLongitude         0         1        -81.0        0.877    -83.5
+13 Value_orig                0         1          0.0181     0.165      0  
+         p25      p50       p75      p100 hist 
+ 1 310844.   312844.  314306.   717203    ▇▁▁▁▁
+ 2     25.2      25.7     26.3      27.8  ▅▇▃▁▃
+ 3    -81.5     -81.1    -80.1     -80.1  ▁▁▃▆▇
+ 4      4         8       10        12    ▅▃▃▅▇
+ 5   2016      2017     2019      2022    ▁▂▁▇▃
+ 6      0         0        0         4.09 ▇▁▁▁▁
+ 7      4.65      6.1      8.35     52.7  ▇▁▁▁▁
+ 8      0         0        0.5      16.9  ▇▁▁▁▁
+ 9   1998      1998     2016      2016    ▁▇▁▁▅
+10      0         0        0         4.09 ▇▁▁▁▁
+11     25.2      25.7     26.3      27.8  ▅▇▃▁▃
+12    -81.5     -81.1    -80.1     -80.1  ▁▁▃▆▇
+13      0         0        0         4.09 ▇▁▁▁▁</code></pre>
+</div>
 </div>
 <div class="cell" data-hash="Nitrate--N-_cache/html/unnamed-chunk-5_9a4a9a2c86eac6dff72420bb77a09f0d">
 <details>
