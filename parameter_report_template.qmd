@@ -21,6 +21,7 @@ if (!requireNamespace("librarian", quietly = TRUE)) {
 }
 
 librarian::shelf(
+  glue,
   here,
   skimr,
   ggplot2
@@ -37,6 +38,29 @@ subset_data <- subset(data, Parameter == parameter_name)
 print(skimr::skim(subset_data))
 
 ```
+
+
+```{R}
+#| code-summary: apply param bounds
+bounds <- read.csv(here("parameter_bounds.csv"), stringsAsFactors = FALSE, strip.white = T)
+lower_bound <- bounds$min[bounds$param == parameter_name]
+upper_bound <- bounds$max[bounds$param == parameter_name]
+
+filter_condition <- (data$Parameter == parameter_name & (data$Value < lower_bound | data$Value > upper_bound))
+
+data <- dplyr::filter(
+  data, 
+  !filter_condition
+)
+
+print(glue("{sum(filter_condition)} rows dropped as < {lower_bound} or > {upper_bound}"))
+```
+
+```{R}
+#| code-summary: write cleaned DataFrame to a file
+write.csv(data, here("data/df_cleaned.csv"), row.names = FALSE)
+```
+
 ```{R}
 #| code-summary: create `params$parameter_name` histogram
 ggplot2::ggplot(subset_data, aes(x=Value)) +

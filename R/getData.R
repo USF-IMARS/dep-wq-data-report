@@ -6,7 +6,7 @@ getRawData <- function(){
     locale = readr::locale(encoding = "UTF-8"),
     show_col_types = FALSE) %>%
   mutate(  # Remove anything that's not a digit, a dot or a minus sign
-    Value = gsub("[^0-9.-]", "", Value),  
+    Value = gsub("[^0-9.-]", "", Value),
     Latitude = gsub("[^0-9.-]", "", Latitude),
     Longitude = gsub("[^0-9.-]", "", Longitude)
   ) %>%
