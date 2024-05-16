@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dep-wq-data-report - Turbidity</title>
+<title>Dep-wq-data-report - Ammonia (N)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#turbidity-report" id="toc-turbidity-report" class="nav-link active" data-scroll-target="#turbidity-report">Turbidity Report</a></li>
+  <li><a href="#ammonia-n-report" id="toc-ammonia-n-report" class="nav-link active" data-scroll-target="#ammonia-n-report">Ammonia (N) Report</a></li>
   </ul>
 </nav>
     </div>
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Turbidity</h1>
+<h1 class="title">Ammonia (N)</h1>
 </div>
 
 
@@ -179,9 +179,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="turbidity-report" class="level1">
-<h1>Turbidity Report</h1>
-<div class="cell" data-hash="Turbidity_cache/html/setup_56fd8fb4e0540d00b83ebab657774d6c">
+<section id="ammonia-n-report" class="level1">
+<h1>Ammonia (N) Report</h1>
+<div class="cell" data-hash="Ammonia--N-_cache/html/setup_afbe6eb21eec6d045a42a09201cf1935">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -200,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="Turbidity_cache/html/unnamed-chunk-2_57dc18b3d81873d0bf5900fda01d882a">
+<div class="cell" data-hash="Ammonia--N-_cache/html/unnamed-chunk-2_fbed62ace3f28cce0aad0fbb71afa48a">
 <details>
 <summary>apply param bounds</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
@@ -220,33 +220,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>3 rows dropped as &lt; 0 or &gt; 200</code></pre>
+<pre><code>no rows removed</code></pre>
 </div>
 <details>
 <summary>apply param bounds</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>3 rows dropped as &lt; 0 or &gt; 200</code></pre>
 </div>
-</div>
-<div class="cell" data-hash="Turbidity_cache/html/unnamed-chunk-3_9b0d7b781412511cb543c95f39e09c22">
+<div class="cell" data-hash="Ammonia--N-_cache/html/unnamed-chunk-3_48ff2c497bc7859dcbd87f334ceb8ea6">
 <details>
 <summary>write cleaned DataFrame to a file</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned_02.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned_02.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="Turbidity_cache/html/unnamed-chunk-4_636b426308e417aab24cfbe756b280a2">
+<div class="cell" data-hash="Ammonia--N-_cache/html/unnamed-chunk-4_5bdbcf69e629ab232e2f293033d30e8e">
 <details>
 <summary>load data &amp; skim</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>── Data Summary ────────────────────────
                            Values     
 Name                       subset_data
-Number of rows             41076      
+Number of rows             10130      
 Number of columns          16         
 _______________________               
 Column type frequency:                
@@ -257,53 +254,53 @@ Group variables            None
 
 ── Variable type: character ────────────────────────────────────────────────────
   skim_variable n_missing complete_rate min max empty n_unique whitespace
-1 Source                0         1       3  21     0        8          0
-2 Site                  0         1       1  28     0      438          0
-3 Parameter             0         1       9   9     0        1          0
-4 Units                27         0.999   3   3     0        1          0
+1 Source                0             1   3  11     0        7          0
+2 Site                  0             1   1   8     0      776          0
+3 Parameter             0             1  11  11     0        1          0
+4 Units                 0             1   4   4     0        1          0
 
 ── Variable type: numeric ──────────────────────────────────────────────────────
-   skim_variable     n_missing complete_rate      mean        sd       p0
- 1 ...1                      0         1     591053.   17289.    566786  
- 2 Latitude                  0         1         25.6      0.748     24.5
- 3 Longitude                 0         1        -80.6      0.644    -82.6
- 4 Month                     0         1          6.58     3.43       1  
- 5 Day                       0         1         13.5      8.19       1  
- 6 Year                      0         1       2015.       7.43    1995  
- 7 Value                     0         1          1.22     2.53       0  
- 8 Sample.Depth           2585         0.937      3.28     6.58       0  
- 9 Total.Depth           23612         0.425      8.23     7.85       0  
-10 verbatimValue             0         1          1.22     2.53       0  
-11 VerbatimLatitude          0         1         25.6      0.748     24.5
-12 verbatimLongitude         0         1        -80.6      0.644    -82.6
-         p25      p50      p75     p100 hist 
- 1 577188.   587522.  604183.  631243   ▇▇▅▃▂
- 2     24.8      25.7     26.1     27.2 ▇▃▇▅▂
- 3    -80.9     -80.2    -80.1    -80.0 ▁▁▁▁▇
- 4      3         7       10       12   ▇▅▅▆▇
- 5      7        12       19       31   ▇▇▆▃▃
- 6   2011      2018     2021     2023   ▁▁▂▂▇
- 7      0.25      0.6      1.3    177   ▇▁▁▁▁
- 8      0.5       0.5      3.2    121.  ▇▁▁▁▁
- 9      3.15      6       10.4    121.  ▇▁▁▁▁
-10      0.25      0.6      1.3    177   ▇▁▁▁▁
-11     24.8      25.7     26.1     27.2 ▇▃▇▅▂
-12    -80.9     -80.2    -80.1    -80.0 ▁▁▁▁▇</code></pre>
+   skim_variable     n_missing complete_rate        mean        sd           p0
+ 1 ...1                      0         1     689230.     3110.     683929      
+ 2 Latitude                  0         1         26.6       0.744      24.9    
+ 3 Longitude                 0         1        -80.5       0.535     -85.2    
+ 4 Month                     0         1          6.75      3.38        1      
+ 5 Day                       0         1         13.7       8.01        1      
+ 6 Year                      0         1       2023.        0.0358   2023      
+ 7 Value                     0         1          0.0679    0.169       0.00165
+ 8 Sample.Depth            149         0.985      1.42     14.9         0.014  
+ 9 Total.Depth           10130         0        NaN        NA          NA      
+10 verbatimValue             0         1          0.0679    0.169       0.00165
+11 VerbatimLatitude          0         1         26.6       0.744      24.9    
+12 verbatimLongitude         0         1        -80.5       0.535     -85.2    
+            p25       p50        p75      p100 hist   
+ 1 686478.      689388.   691951.    694525    "▇▇▆▇▇"
+ 2     25.9         26.7      27.2       30.8  "▅▇▂▁▁"
+ 3    -80.9        -80.3     -80.1      -80.0  "▁▁▁▂▇"
+ 4      4            7        10         12    "▇▅▆▆▇"
+ 5      7           13        19         31    "▇▇▆▅▃"
+ 6   2023         2023      2023       2024    "▇▁▁▁▁"
+ 7      0.00918      0.02      0.061      6.77 "▇▁▁▁▁"
+ 8      0.5          0.5       0.5     1463    "▇▁▁▁▁"
+ 9     NA           NA        NA         NA    " "    
+10      0.00918      0.02      0.061      6.77 "▇▁▁▁▁"
+11     25.9         26.7      27.2       30.8  "▅▇▂▁▁"
+12    -80.9        -80.3     -80.1      -80.0  "▁▁▁▂▇"</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="Turbidity_cache/html/unnamed-chunk-5_426f9408b6c8134a45aa6da4075d83de">
+<div class="cell" data-hash="Ammonia--N-_cache/html/unnamed-chunk-5_b59d690660b087a86cd4a850193c8da1">
 <details>
 <summary>create <code>params$parameter_name</code> histogram</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Turbidity_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="Ammonia--N-_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 

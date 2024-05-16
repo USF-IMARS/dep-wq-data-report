@@ -181,7 +181,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="chlorophyll-a-report" class="level1">
 <h1>Chlorophyll a Report</h1>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/setup_5963d77914ca97a683d41a0339171794">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/setup_215577f8975f35a105dfef68df6e96f9">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"librarian"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
@@ -196,12 +196,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  ggplot2</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">"R/getData.R"</span>))</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">getData</span>()</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data/df_cleaned_01.csv"</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>parameter_name <span class="ot">&lt;-</span> params<span class="sc">$</span>parameter_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-2_a5e60162e96c9a9a4a999aeb44cd59c9">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-2_53fdb2fbb03af878ce117c685e2e7d30">
 <details>
 <summary>apply param bounds</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>bounds <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"parameter_bounds.csv"</span>), <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>, <span class="at">strip.white =</span> T)</span>
@@ -210,93 +209,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>filter_condition <span class="ot">&lt;-</span> (data<span class="sc">$</span>Parameter <span class="sc">==</span> parameter_name <span class="sc">&amp;</span> (data<span class="sc">$</span>Value <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data<span class="sc">$</span>Value <span class="sc">&gt;</span> upper_bound))</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  data, </span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="sc">!</span>filter_condition</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tryCatch</span>({  <span class="co"># this tryCatch is for when filter_condition is logical(0) i.e. no matches</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    data, </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="sc">!</span>filter_condition</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}, <span class="at">error =</span> <span class="cf">function</span>(e){</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"no rows removed"</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>4 rows dropped as &lt; 0 or &gt; 75</code></pre>
+</div>
+<details>
+<summary>apply param bounds</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">glue</span>(<span class="st">"{sum(filter_condition)} rows dropped as &lt; {lower_bound} or &gt; {upper_bound}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>4 rows dropped as &lt; 0 or &gt; 75</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-3_094194f899c8a561b166c1b322efe0e7">
+<div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-3_9907418fb43be4325d3e6bdd21fdea78">
 <details>
 <summary>write cleaned DataFrame to a file</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(data, <span class="fu">here</span>(<span class="st">"data/df_cleaned_02.csv"</span>), <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-4_bc9af646993b502fa8153a75087ff195">
 <details>
 <summary>load data &amp; skim</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>subset_data <span class="ot">&lt;-</span> <span class="fu">subset</span>(data, Parameter <span class="sc">==</span> parameter_name)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(skimr<span class="sc">::</span><span class="fu">skim</span>(subset_data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>── Data Summary ────────────────────────
                            Values     
 Name                       subset_data
-Number of rows             36765      
-Number of columns          20         
+Number of rows             36813      
+Number of columns          16         
 _______________________               
 Column type frequency:                
-  character                7          
-  numeric                  13         
+  character                4          
+  numeric                  12         
 ________________________              
 Group variables            None       
 
 ── Variable type: character ────────────────────────────────────────────────────
-  skim_variable  n_missing complete_rate min max empty n_unique whitespace
-1 Source                 0             1   3   7     0        8          0
-2 Site                   0             1   1  28     0      456          0
-3 Parameter              0             1  13  13     0        1          0
-4 Units                  0             1   4   4     0        2          0
-5 Trend Analysis         0             1   2   3     0        2          0
-6 Continuous             0             1   2   3     0        2          0
-7 End Date               0             1   4   7     0        9          0
+  skim_variable n_missing complete_rate min max empty n_unique whitespace
+1 Source                0             1   3  10     0        9          0
+2 Site                  0             1   1  28     0      515          0
+3 Parameter             0             1  13  13     0        1          0
+4 Units                 0             1   4   4     0        1          0
 
 ── Variable type: numeric ──────────────────────────────────────────────────────
-   skim_variable     n_missing complete_rate     mean        sd     p0      p25
- 1 ...1                      0         1     23172.   25831.       1   11288   
- 2 Latitude                  0         1        25.5      0.708   24.4    24.8 
- 3 Longitude                 0         1       -80.7      0.718  -83.5   -81.3 
- 4 Month                     0         1         6.70     3.45     1       4   
- 5 Year                      0         1      2013.       7.71  1995    2008   
- 6 Value                     0         1         1.44     3.02     0       0.28
- 7 Total Depth           25612         0.303     7.45     7.56     0       2.83
- 8 Sample Depth           6468         0.824     1.18    19.9      0       0   
- 9 Start Date                0         1      2001.      10.4   1988    1988   
-10 verbatimValue             0         1         1.44     3.02     0       0.28
-11 VerbatimLatitude          0         1        25.5      0.708   24.4    24.8 
-12 verbatimLongitude         0         1       -80.7      0.718  -83.5   -81.3 
-13 Value_orig                0         1         1.44     3.02     0       0.28
-        p50      p75     p100 hist 
- 1 21955    31683    717453   ▇▁▁▁▁
- 2    25.5     25.9      27.8 ▇▆▇▂▁
- 3   -80.4    -80.1     -80.0 ▁▁▂▃▇
- 4     7       10        12   ▇▅▅▅▇
- 5  2016     2021      2022   ▂▂▃▃▇
- 6     0.52     1.40     70.9 ▇▁▁▁▁
- 7     5        9.61    121.  ▇▁▁▁▁
- 8     0.5      0.5    2494   ▇▁▁▁▁
- 9  1998     2006      2021   ▇▆▆▁▆
-10     0.52     1.40     70.9 ▇▁▁▁▁
-11    25.5     25.9      27.8 ▇▆▇▂▁
-12   -80.4    -80.1     -80.0 ▁▁▂▃▇
-13     0.52     1.40     70.9 ▇▁▁▁▁</code></pre>
+   skim_variable     n_missing complete_rate      mean         sd     p0
+ 1 ...1                      0         1     101919.   224634.       1  
+ 2 Latitude                  0         1         25.6       0.835   24.3
+ 3 Longitude                 0         1        -80.8       0.807  -85.7
+ 4 Month                     0         1          6.73      3.45     1  
+ 5 Day                      36         0.999     13.5       8.32     1  
+ 6 Year                      0         1       2015.        8.15  1995  
+ 7 Value                     0         1          1.42      3.13     0  
+ 8 Sample.Depth             36         0.999      1.38     18.3      0  
+ 9 Total.Depth           25218         0.315      7.19      7.52     0  
+10 verbatimValue             0         1          1.42      3.13     0  
+11 VerbatimLatitude          0         1         25.6       0.835   24.3
+12 verbatimLongitude         0         1        -80.8       0.807  -85.7
+         p25       p50      p75     p100 hist 
+ 1 11199     20429     31249    714809   ▇▁▁▁▁
+ 2    24.8      25.5      26.1      30.8 ▇▆▁▁▁
+ 3   -81.4     -80.4     -80.1     -80.0 ▁▁▁▃▇
+ 4     4         7        10        12   ▇▅▅▅▇
+ 5     7        12        20        31   ▇▇▆▃▃
+ 6  2009      2018      2021      2023   ▁▂▂▂▇
+ 7     0.276     0.495     1.28     70.9 ▇▁▁▁▁
+ 8     0         0.5       0.5    2494   ▇▁▁▁▁
+ 9     2.57      4.72      9.5     121.  ▇▁▁▁▁
+10     0.276     0.495     1.28     70.9 ▇▁▁▁▁
+11    24.8      25.5      26.1      30.8 ▇▆▁▁▁
+12   -81.4     -80.4     -80.1     -80.0 ▁▁▁▃▇</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="Chlorophyll-a_cache/html/unnamed-chunk-5_0696b3399a1b42cb8c5731012339dbbb">
 <details>
 <summary>create <code>params$parameter_name</code> histogram</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(subset_data, <span class="fu">aes</span>(<span class="at">x=</span>Value)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">30</span>, <span class="at">fill=</span><span class="st">"blue"</span>, <span class="at">color=</span><span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_log10</span>() <span class="sc">+</span>  <span class="co"># Transform the y-axis to a logarithmic scale</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">"Histogram of Values for"</span>, params<span class="sc">$</span>parameter_name),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">"Value"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">y=</span><span class="st">"Log Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Chlorophyll-a_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
