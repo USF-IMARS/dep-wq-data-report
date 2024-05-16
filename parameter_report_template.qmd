@@ -29,16 +29,8 @@ librarian::shelf(
 
 source(here("R/getData.R"))
 data <- getData()
-```
-
-```{R}
-#| code-summary: load data & skim
 parameter_name <- params$parameter_name
-subset_data <- subset(data, Parameter == parameter_name)
-print(skimr::skim(subset_data))
-
 ```
-
 
 ```{R}
 #| code-summary: apply param bounds
@@ -59,6 +51,14 @@ print(glue("{sum(filter_condition)} rows dropped as < {lower_bound} or > {upper_
 ```{R}
 #| code-summary: write cleaned DataFrame to a file
 write.csv(data, here("data/df_cleaned.csv"), row.names = FALSE)
+```
+
+
+```{R}
+#| code-summary: load data & skim
+subset_data <- subset(data, Parameter == parameter_name)
+print(skimr::skim(subset_data))
+
 ```
 
 ```{R}
