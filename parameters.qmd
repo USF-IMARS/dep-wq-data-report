@@ -56,16 +56,15 @@ print(unique_parameters)
 
 # TODO: filter rows with param values too high
 
-param           | min | max
-----------------|-----|-------
-Ammonium        | 0   | 6
-Nitrate         | 0   | 10
-Chlorophylll    | 0   | 75
-Nitrate-Nitrate | 0   | 8 
-Nitrite         | 0   | 0.5
-Nitrogen Total  | 0   | 6
-Nitrogen Total K. | 0  | 5
-Orthophosphate  | 0  | 10
-Phosphorus total | 0  | 2
-Silica          | 0 | 20 
-Turbidity       | 0  | 200
+
+```{R}
+#| code-summary: print table of param bounds
+# NOTE: each row should *exactly* match the unique_parameters above
+csvPath <- "parameter_bounds.csv"
+
+# Read the CSV data
+data <- read.csv(csvPath, stringsAsFactors = FALSE)
+
+# Print the data frame
+print(data)
+```

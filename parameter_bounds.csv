@@ -1,0 +1,12 @@
+param                    , min , max
+Ammonium (N)             , 0   , 6
+Nitrate (N)              , 0   , 10
+Chlorophyll a            , 0   , 75
+Nitrate-Nitrate (N)      , 0   , 8 
+Nitrite (N)              , 0   , 0.5
+Nitrogen- Total          , 0   , 6
+Nitrogen- Total Kjeldahl , 0   , 5
+Orthophosphate (P)       , 0   , 10
+Phosphorus- Total        , 0   , 2
+Silica                   , 0   , 20 
+Turbidity                , 0   , 200
