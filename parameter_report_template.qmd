@@ -27,8 +27,7 @@ librarian::shelf(
   ggplot2
 )
 
-source(here("R/getData.R"))
-data <- getData()
+data <- read.csv(here("data/df_cleaned_01.csv"))
 parameter_name <- params$parameter_name
 ```
 
@@ -40,17 +39,22 @@ upper_bound <- bounds$max[bounds$param == parameter_name]
 
 filter_condition <- (data$Parameter == parameter_name & (data$Value < lower_bound | data$Value > upper_bound))
 
-data <- dplyr::filter(
-  data, 
-  !filter_condition
-)
+tryCatch({  # this tryCatch is for when filter_condition is logical(0) i.e. no matches
+  data <- dplyr::filter(
+    data, 
+    !filter_condition
+  )
+  print(glue("{sum(filter_condition)} rows dropped as < {lower_bound} or > {upper_bound}"))
+}, error = function(e){
+  print(glue("no rows removed"))
+})
 
 print(glue("{sum(filter_condition)} rows dropped as < {lower_bound} or > {upper_bound}"))
 ```
 
 ```{R}
 #| code-summary: write cleaned DataFrame to a file
-write.csv(data, here("data/df_cleaned.csv"), row.names = FALSE)
+write.csv(data, here("data/df_cleaned_02.csv"), row.names = FALSE)
 ```
 
 

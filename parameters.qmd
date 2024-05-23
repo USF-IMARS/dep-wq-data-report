@@ -53,9 +53,7 @@ print(unique_parameters)
 
 ```
 
-
-# TODO: filter rows with param values too high
-
+Each parameter is filtered using the following min+max bounds.
 
 ```{R}
 #| code-summary: print table of param bounds
@@ -68,3 +66,5 @@ data <- read.csv(csvPath, stringsAsFactors = FALSE)
 # Print the data frame
 print(data)
 ```
+
+Details on bound filtering and more info are in each parameter report listed below.

@@ -38,7 +38,7 @@ inspectData <- function(fpath){
 }
 
 inspectData("data/station_sampling_periods_for_all_programs.csv")
-inspectData("data/Unified_WQ_Database_1995-2022.csv")
+inspectData("data/Unified_WQ_Database(2023 updated).csv")
 ```
 
 Here is a summarizing table of what I see in each file we were provided:
@@ -47,9 +47,9 @@ filename                                        | geospatial info     | dt info 
 ------------------------------------------------|---------------------|----------|---
 `Merged_*.csv`                                  |  depth?+source+site | MM-YYYY  | 
 `station_sampling_periods_for_all_programs.csv` | lat+lon+source+site |          | start+end year + still sampling
-`Unified_WQ_Database_1995-2022.csv`             | lat+lon+source+site | MM-YYYY | start+end + still sampling
+`Unified_WQ_Database_*.csv`             | lat+lon+source+site | MM-YYYY | start+end + still sampling
 
-So... in theory `Unified_WQ_Database_1995-2022.csv` contains everything we could need.
+So... in theory `Unified_WQ_Database_*.csv` contains everything we could need.
 
 
 # Exploratory analyses
@@ -58,7 +58,7 @@ A skim view of the data as it loads in:
 #| label: skim data
 #| code-summary: (code) skim the data
 #| message: false
-data <- readr::read_csv("data/Unified_WQ_Database_1995-2022.csv")
+data <- readr::read_csv("data/Unified_WQ_Database(2023 updated).csv")
 
 skimr::skim(data)
 ```

@@ -1,7 +1,6 @@
 ---
 title: "Sites Report"
 code-fold: true
-
 ---
 
 A summary of which sites meet quality assessment checks to be included in the final map.
@@ -22,6 +21,7 @@ librarian::shelf(
   dplyr
 )
 source("R/getData.R")
+data <- getData()
 ```
 
 ```{R}

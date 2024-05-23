@@ -1,9 +1,11 @@
 # creates a report template .qmd for each parameter in the dataset
-
-# Proceed if rendering the whole project, exit otherwise
-if (!nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))) {
-  quit()
-}
+# 
+# # Proceed if rendering the whole project, exit otherwise
+# if (!nzchar(Sys.getenv("QUARTO_PROJECT_RENDER_ALL"))) {
+#   quit()
+# }
+library(tidyr)
+library(dplyr)
 
 # create the template
 templ <- gsub(
@@ -14,7 +16,7 @@ templ <- gsub(
 dir.create("parameter_reports", showWarnings=FALSE)
 
 source("R/getData.R")
-data <- getData()
+data <- getRawData()
 # print unique values in `Parameter` column
 unique_parameters <- unique(data$Parameter)
 
