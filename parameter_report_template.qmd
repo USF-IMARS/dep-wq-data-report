@@ -27,7 +27,7 @@ librarian::shelf(
   ggplot2
 )
 
-data <- read.csv(here("data/df_cleaned_01.csv"))
+data <- read.csv(here("data/df_cleaned.csv"))
 parameter_name <- params$parameter_name
 ```
 

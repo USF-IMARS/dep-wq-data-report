@@ -20,6 +20,9 @@ website:
       - href: data_details.qmd
         text: Data Details
         
+      - href: seacar_compare.qmd
+        text: SEACAR Comparison
+        
       - href: https://github.com/USF-IMARS/dep-wq-data-report
         text: Source Code on GitHub
 
